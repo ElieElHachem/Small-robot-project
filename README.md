@@ -86,6 +86,6 @@ Board: **Arduino Nano** (clone, **CH340** USB chip, **old bootloader**) on a Nan
 ## Credits and license
 
 Based on the [Otto DIY](https://www.ottodiy.com/) examples (OttoDIYLib, `OttoE_rolleyes`, `OttoE_ALLeyes`) and the Adafruit LED Backpack library.
-**BSD** license, like the original code: keep the notices at the top of the files when redistributing.
+Released under the [MIT License](LICENSE). Parts derived from the Otto DIY / Adafruit examples keep their original **BSD** notices at the top of the files: keep them when redistributing.
 
 The `.claude/skills/otto-eyes/` folder holds a Claude Code *skill* that sums up the whole setup and the project's choices.
