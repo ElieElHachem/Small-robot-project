@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 740" width="1100" height="740" font-family="Helvetica, Arial, sans-serif">
+  <title>Otto Eyes wiring: Arduino Nano on a Nano I/O shield</title>
+  <defs>
+    <style>
+      .t  { font-size: 13px; fill: #1a1a1a; }
+      .ts { font-size: 11px; fill: #444; }
+      .tb { font-size: 14px; font-weight: bold; fill: #1a1a1a; }
+      .tw { font-size: 12px; fill: #ffffff; }
+      .twb { font-size: 13px; font-weight: bold; fill: #ffffff; }
+      .pin { fill: #d4af37; stroke: #8a6d1a; stroke-width: 1; }
+      .pinoff { fill: #9e9e9e; stroke: #6e6e6e; stroke-width: 1; }
+      .w { fill: none; stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+      .dash { stroke-dasharray: 6 4; }
+      .box { fill: #eef5fc; stroke: #1565c0; stroke-width: 1.5; }
+      .opt { fill: #f7f7f7; stroke: #888; stroke-width: 1.5; stroke-dasharray: 6 4; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1100" height="740" fill="#ffffff"/>
+  <text x="20" y="28" class="tb" style="font-size:18px">Otto Eyes — wiring on the Arduino Nano I/O shield</text>
+
+  <!-- ================= SERVO CABLES (brown = G, red = V, orange = S) ================= -->
+  <!-- Left leg: D2 -->
+  <polyline class="w" stroke="#8b4513" points="146,120 146,194 326,194 326,246"/>
+  <polyline class="w" stroke="#d32f2f" points="150,120 150,198 330,198 330,246"/>
+  <polyline class="w" stroke="#f57c00" points="154,120 154,202 334,202 334,246"/>
+  <!-- Right leg: D3 -->
+  <polyline class="w" stroke="#8b4513" points="286,120 286,178 360,178 360,246"/>
+  <polyline class="w" stroke="#d32f2f" points="290,120 290,182 364,182 364,246"/>
+  <polyline class="w" stroke="#f57c00" points="294,120 294,186 368,186 368,246"/>
+  <!-- Left foot: D4 -->
+  <polyline class="w" stroke="#8b4513" points="394,120 394,246"/>
+  <polyline class="w" stroke="#d32f2f" points="398,120 398,246"/>
+  <polyline class="w" stroke="#f57c00" points="402,120 402,246"/>
+  <!-- Right foot: D5 -->
+  <polyline class="w" stroke="#8b4513" points="566,120 566,146 428,146 428,246"/>
+  <polyline class="w" stroke="#d32f2f" points="570,120 570,150 432,150 432,246"/>
+  <polyline class="w" stroke="#f57c00" points="574,120 574,154 436,154 436,246"/>
+  <!-- Buzzer: D13 (+ to S, - to G) -->
+  <polyline class="w" stroke="#d32f2f" points="701,120 701,246"/>
+  <polyline class="w" stroke="#212121" points="707,120 707,246"/>
+
+  <!-- ================= SERVOS + BUZZER ================= -->
+  <rect class="box" x="90" y="50" width="120" height="70" rx="8"/>
+  <text x="150" y="78" class="tb" text-anchor="middle">Left leg</text>
+  <text x="150" y="96" class="ts" text-anchor="middle">SG90 servo</text>
+  <text x="150" y="112" class="ts" text-anchor="middle">pin D2</text>
+
+  <rect class="box" x="230" y="50" width="120" height="70" rx="8"/>
+  <text x="290" y="78" class="tb" text-anchor="middle">Right leg</text>
+  <text x="290" y="96" class="ts" text-anchor="middle">SG90 servo</text>
+  <text x="290" y="112" class="ts" text-anchor="middle">pin D3</text>
+
+  <rect class="box" x="370" y="50" width="120" height="70" rx="8"/>
+  <text x="430" y="78" class="tb" text-anchor="middle">Left foot</text>
+  <text x="430" y="96" class="ts" text-anchor="middle">SG90 servo</text>
+  <text x="430" y="112" class="ts" text-anchor="middle">pin D4</text>
+
+  <rect class="box" x="510" y="50" width="120" height="70" rx="8"/>
+  <text x="570" y="78" class="tb" text-anchor="middle">Right foot</text>
+  <text x="570" y="96" class="ts" text-anchor="middle">SG90 servo</text>
+  <text x="570" y="112" class="ts" text-anchor="middle">pin D5</text>
+
+  <rect class="box" x="644" y="50" width="120" height="70" rx="8"/>
+  <text x="704" y="78" class="tb" text-anchor="middle">Buzzer</text>
+  <text x="704" y="96" class="ts" text-anchor="middle">passive, pin D13</text>
+  <text x="704" y="112" class="ts" text-anchor="middle">+ → S · − → G</text>
+
+  <!-- ================= SHIELD ================= -->
+  <rect x="300" y="230" width="540" height="260" rx="10" fill="#1e4f9a" stroke="#0d2f63" stroke-width="2"/>
+  <text x="826" y="482" class="tw" text-anchor="end">Nano I/O expansion shield</text>
+
+  <!-- Digital header: columns D2..D13, rows S (outer) / V / G -->
+  <text x="312" y="256" class="twb" text-anchor="middle">S</text>
+  <text x="312" y="274" class="twb" text-anchor="middle">V</text>
+  <text x="312" y="292" class="twb" text-anchor="middle">G</text>
+  <g>
+    <!-- used columns -->
+    <rect class="pin" x="326" y="248" width="8" height="8"/><rect class="pin" x="326" y="266" width="8" height="8"/><rect class="pin" x="326" y="284" width="8" height="8"/>
+    <rect class="pin" x="360" y="248" width="8" height="8"/><rect class="pin" x="360" y="266" width="8" height="8"/><rect class="pin" x="360" y="284" width="8" height="8"/>
+    <rect class="pin" x="394" y="248" width="8" height="8"/><rect class="pin" x="394" y="266" width="8" height="8"/><rect class="pin" x="394" y="284" width="8" height="8"/>
+    <rect class="pin" x="428" y="248" width="8" height="8"/><rect class="pin" x="428" y="266" width="8" height="8"/><rect class="pin" x="428" y="284" width="8" height="8"/>
+    <!-- unused D6..D12 -->
+    <rect class="pinoff" x="462" y="248" width="8" height="8"/><rect class="pinoff" x="462" y="266" width="8" height="8"/><rect class="pinoff" x="462" y="284" width="8" height="8"/>
+    <rect class="pinoff" x="496" y="248" width="8" height="8"/><rect class="pinoff" x="496" y="266" width="8" height="8"/><rect class="pinoff" x="496" y="284" width="8" height="8"/>
+    <rect class="pinoff" x="530" y="248" width="8" height="8"/><rect class="pinoff" x="530" y="266" width="8" height="8"/><rect class="pinoff" x="530" y="284" width="8" height="8"/>
+    <rect class="pinoff" x="564" y="248" width="8" height="8"/><rect class="pinoff" x="564" y="266" width="8" height="8"/><rect class="pinoff" x="564" y="284" width="8" height="8"/>
+    <rect class="pinoff" x="598" y="248" width="8" height="8"/><rect class="pinoff" x="598" y="266" width="8" height="8"/><rect class="pinoff" x="598" y="284" width="8" height="8"/>
+    <rect class="pinoff" x="632" y="248" width="8" height="8"/><rect class="pinoff" x="632" y="266" width="8" height="8"/><rect class="pinoff" x="632" y="284" width="8" height="8"/>
+    <rect class="pinoff" x="666" y="248" width="8" height="8"/><rect class="pinoff" x="666" y="266" width="8" height="8"/><rect class="pinoff" x="666" y="284" width="8" height="8"/>
+    <!-- D13 -->
+    <rect class="pin" x="700" y="248" width="8" height="8"/><rect class="pinoff" x="700" y="266" width="8" height="8"/><rect class="pin" x="700" y="284" width="8" height="8"/>
+  </g>
+  <!-- Servo plugs: orange on S, red on V, brown on G -->
+  <g>
+    <rect x="321" y="243" width="18" height="54" rx="3" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <rect x="355" y="243" width="18" height="54" rx="3" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <rect x="389" y="243" width="18" height="54" rx="3" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <rect x="423" y="243" width="18" height="54" rx="3" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <rect x="695" y="243" width="18" height="54" rx="3" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+  </g>
+  <text x="330" y="314" class="tw" text-anchor="middle">D2</text>
+  <text x="364" y="314" class="tw" text-anchor="middle">D3</text>
+  <text x="398" y="314" class="tw" text-anchor="middle">D4</text>
+  <text x="432" y="314" class="tw" text-anchor="middle">D5</text>
+  <text x="568" y="314" class="tw" text-anchor="middle" fill-opacity="0.7">D6 – D12 not used</text>
+  <text x="704" y="314" class="tw" text-anchor="middle">D13</text>
+
+  <!-- Arduino Nano -->
+  <rect x="470" y="330" width="230" height="70" rx="5" fill="#0b2a55" stroke="#9fb7d9" stroke-width="1"/>
+  <rect x="612" y="342" width="34" height="34" fill="#111" stroke="#666"/>
+  <text x="629" y="363" class="tw" text-anchor="middle" style="font-size:8px">328P</text>
+  <rect x="700" y="352" width="24" height="26" rx="2" fill="#c0c0c0" stroke="#777"/>
+  <text x="530" y="350" class="twb" text-anchor="middle">Arduino Nano</text>
+  <text x="530" y="366" class="tw" text-anchor="middle" style="font-size:10px">ATmega328P</text>
+  <text x="530" y="380" class="tw" text-anchor="middle" style="font-size:10px">CH340 USB</text>
+  <text x="530" y="394" class="tw" text-anchor="middle" style="font-size:10px">old bootloader</text>
+  <text x="676" y="394" class="tw" text-anchor="middle" style="font-size:10px">USB</text>
+
+  <!-- Analog header: A0..A7, rows G / V / S (outer) -->
+  <text x="312" y="438" class="twb" text-anchor="middle">G</text>
+  <text x="312" y="456" class="twb" text-anchor="middle">V</text>
+  <text x="312" y="474" class="twb" text-anchor="middle">S</text>
+  <g>
+    <rect class="pin" x="326" y="430" width="8" height="8"/><rect class="pin" x="326" y="448" width="8" height="8"/><rect class="pin" x="326" y="466" width="8" height="8"/>
+    <rect class="pinoff" x="360" y="430" width="8" height="8"/><rect class="pinoff" x="360" y="448" width="8" height="8"/><rect class="pinoff" x="360" y="466" width="8" height="8"/>
+    <rect class="pinoff" x="394" y="430" width="8" height="8"/><rect class="pinoff" x="394" y="448" width="8" height="8"/><rect class="pinoff" x="394" y="466" width="8" height="8"/>
+    <rect class="pinoff" x="428" y="430" width="8" height="8"/><rect class="pinoff" x="428" y="448" width="8" height="8"/><rect class="pinoff" x="428" y="466" width="8" height="8"/>
+  </g>
+  <rect x="321" y="425" width="18" height="54" rx="3" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="330" y="420" class="tw" text-anchor="middle">A0</text>
+  <text x="364" y="420" class="tw" text-anchor="middle">A1</text>
+  <text x="398" y="420" class="tw" text-anchor="middle">A2</text>
+  <text x="432" y="420" class="tw" text-anchor="middle">A3</text>
+  <text x="530" y="460" class="tw" text-anchor="middle" fill-opacity="0.85" style="font-size:11px">A4 = SDA · A5 = SCL</text>
+  <text x="530" y="474" class="tw" text-anchor="middle" fill-opacity="0.85" style="font-size:11px">(used through the I2C header →)</text>
+
+  <!-- I2C header -->
+  <text x="790" y="304" class="tw" text-anchor="end">GND</text>
+  <text x="790" y="324" class="tw" text-anchor="end">5V</text>
+  <text x="790" y="344" class="tw" text-anchor="end">SDA (A4)</text>
+  <text x="790" y="364" class="tw" text-anchor="end">SCL (A5)</text>
+  <rect class="pin" x="800" y="296" width="8" height="8"/>
+  <rect class="pin" x="800" y="316" width="8" height="8"/>
+  <rect class="pin" x="800" y="336" width="8" height="8"/>
+  <rect class="pin" x="800" y="356" width="8" height="8"/>
+  <text x="804" y="386" class="tw" text-anchor="middle" style="font-size:10px">I2C</text>
+
+  <!-- Power terminals -->
+  <rect class="pin" x="314" y="346" width="10" height="10"/>
+  <rect class="pin" x="314" y="376" width="10" height="10"/>
+  <text x="332" y="355" class="tw">VIN</text>
+  <text x="332" y="385" class="tw">GND</text>
+
+  <!-- ================= LED MATRIX (I2C) ================= -->
+  <polyline class="w" stroke="#212121" points="808,300 920,300"/>
+  <polyline class="w" stroke="#d32f2f" points="808,320 920,320"/>
+  <polyline class="w" stroke="#1e88e5" points="808,340 920,340"/>
+  <polyline class="w" stroke="#2e7d32" points="808,360 920,360"/>
+  <rect class="box" x="920" y="270" width="160" height="120" rx="8"/>
+  <text x="1000" y="294" class="tb" text-anchor="middle">LED matrix 8×16</text>
+  <text x="1000" y="312" class="ts" text-anchor="middle">HT16K33 driver</text>
+  <text x="1000" y="328" class="ts" text-anchor="middle">I2C address 0x70</text>
+  <text x="1000" y="344" class="ts" text-anchor="middle">= Otto's eyes</text>
+  <g fill="#d32f2f">
+    <circle cx="958" cy="368" r="3"/><circle cx="968" cy="368" r="3"/><circle cx="978" cy="368" r="3"/>
+    <circle cx="1022" cy="368" r="3"/><circle cx="1032" cy="368" r="3"/><circle cx="1042" cy="368" r="3"/>
+  </g>
+
+  <!-- ================= POWER ================= -->
+  <rect class="box" x="24" y="316" width="168" height="96" rx="8"/>
+  <text x="108" y="340" class="tb" text-anchor="middle">Battery</text>
+  <text x="108" y="358" class="ts" text-anchor="middle">eyes only: 9 V</text>
+  <text x="108" y="374" class="ts" text-anchor="middle">with servos: 7.4 V Li-ion</text>
+  <text x="108" y="390" class="ts" text-anchor="middle">or 6 × AA (VIN ≥ 7 V)</text>
+  <text x="200" y="346" class="tb" style="fill:#d32f2f">+</text>
+  <text x="200" y="398" class="tb">−</text>
+  <!-- + through the power switch to VIN -->
+  <polyline class="w" stroke="#d32f2f" points="192,351 228,351"/>
+  <circle cx="232" cy="351" r="3.5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <line x1="235" y1="350" x2="262" y2="338" stroke="#333" stroke-width="2"/>
+  <circle cx="266" cy="351" r="3.5" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="249" y="330" class="ts" text-anchor="middle">switch</text>
+  <polyline class="w" stroke="#d32f2f" points="270,351 314,351"/>
+  <polyline class="w" stroke="#212121" points="192,381 314,381"/>
+
+  <!-- ================= OPTIONAL TOUCH SENSOR ================= -->
+  <polyline class="w dash" stroke="#8b4513" points="326,560 326,480"/>
+  <polyline class="w dash" stroke="#d32f2f" points="330,560 330,480"/>
+  <polyline class="w dash" stroke="#f9a825" points="334,560 334,480"/>
+  <rect class="opt" x="250" y="560" width="200" height="74" rx="8"/>
+  <text x="350" y="584" class="tb" text-anchor="middle" style="fill:#555">Touch sensor (TTP223)</text>
+  <text x="350" y="602" class="ts" text-anchor="middle">optional · pin A0</text>
+  <text x="350" y="618" class="ts" text-anchor="middle">I/O → S · VCC → V · GND → G</text>
+  <text x="350" y="652" class="ts" text-anchor="middle">not used by OttoE_halloween</text>
+
+  <!-- ================= LEGEND ================= -->
+  <rect x="520" y="520" width="560" height="200" rx="8" fill="#fafafa" stroke="#bbb"/>
+  <text x="540" y="546" class="tb">Legend</text>
+  <line x1="540" y1="566" x2="575" y2="566" stroke="#f57c00" stroke-width="3"/><text x="584" y="570" class="t">S — servo signal (PWM)</text>
+  <line x1="540" y1="588" x2="575" y2="588" stroke="#d32f2f" stroke-width="3"/><text x="584" y="592" class="t">V — +5 V</text>
+  <line x1="540" y1="610" x2="575" y2="610" stroke="#8b4513" stroke-width="3"/><text x="584" y="614" class="t">G — ground (GND)</text>
+  <line x1="540" y1="632" x2="575" y2="632" stroke="#1e88e5" stroke-width="3"/><text x="584" y="636" class="t">SDA (A4)</text>
+  <line x1="680" y1="632" x2="715" y2="632" stroke="#2e7d32" stroke-width="3"/><text x="724" y="636" class="t">SCL (A5)</text>
+  <line x1="540" y1="654" x2="575" y2="654" stroke="#555" stroke-width="3" stroke-dasharray="6 4"/><text x="584" y="658" class="t">optional / not used</text>
+  <rect class="pinoff" x="806" y="560" width="8" height="8"/><text x="822" y="568" class="t">unused pin</text>
+  <text x="806" y="592" class="t">Wire colours as on the real robot</text>
+  <text x="806" y="610" class="t">(they can vary between kits).</text>
+  <text x="806" y="636" class="t">Buzzer: red = +, black = −</text>
+  <text x="540" y="684" class="t"><tspan font-weight="bold">Left / right</tspan> = the robot's own point of view:</text>
+  <text x="540" y="702" class="t">facing Otto, its left leg (D2) and left foot (D4) are on your right.</text>
+</svg>

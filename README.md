@@ -41,6 +41,10 @@ Random pick out of 31:
 
 Board: **Arduino Nano** (clone, **CH340** USB chip, **old bootloader**) on a Nano I/O expansion shield.
 
+![Otto Eyes wiring: 4 servos on D2-D5, buzzer on D13, LED matrix on the I2C header, battery through the switch to VIN, optional touch sensor on A0](docs/wiring.svg)
+
+*Every 3-pin column of the shield is **S** (signal) / **V** (+5 V) / **G** (ground). Pin layout drawn schematically: check the labels printed on your own shield.*
+
 | Part | Pin | Note |
 |---|---|---|
 | Left leg | 2 | "left" = **the robot's** left (on your right when it faces you) |
